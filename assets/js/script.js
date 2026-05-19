@@ -48,27 +48,27 @@ const aggiungiPriorityTask = function (testo, priorita) {
 
     const duoTask = document.createElement("div");
     duoTask.classList.add("duoTask");
-    duoTask.textContent = testo;        
-    duoTask.appendChild(badgeTask);     
+    duoTask.textContent = testo;
+    duoTask.appendChild(badgeTask);
 
     const adesso = new Date();
     const dataFormattata = adesso.toLocaleString("it-IT");
-    
+
     const infoData = document.createElement("span");
     infoData.classList.add("data-task");
     infoData.textContent = dataFormattata;
-    
+
     const bottoneElimina = document.createElement("button");
     bottoneElimina.textContent = "Elimina";
 
     const gestioneTask = document.createElement("div");
     gestioneTask.classList.add("gestione-task");
-    
+
     gestioneTask.appendChild(infoData);
     gestioneTask.appendChild(bottoneElimina);
 
-    li.appendChild(duoTask);       
-    li.appendChild(gestioneTask);  
+    li.appendChild(duoTask);
+    li.appendChild(gestioneTask);
 
     lista.appendChild(li);
     aggiornaContatore();
@@ -95,3 +95,23 @@ const togliEvidenza = function (indice) {
 
 /* togliEvidenza(); */        // toglie evidenzia, lascio nel commento per non creare problemi al codice.
 
+contaPerPriorita();
+
+function contaPerPriorita() {
+    const tasks = lista.querySelectorAll("li");
+    const contatorePriorita = {
+        alta: 0,
+        media: 0,
+        bassa: 0
+    };
+    tasks.forEach(task => {
+        if (task.classList.contains("priorita-alta")) {
+            contatorePriorita.alta++;
+        } else if (task.classList.contains("priorita-media")) {
+            contatorePriorita.media++;
+        } else if (task.classList.contains("priorita-bassa")) {
+            contatorePriorita.bassa++;
+        }   
+    });
+    console.log(contatorePriorita);
+}
