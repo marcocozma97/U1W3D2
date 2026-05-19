@@ -42,24 +42,33 @@ const aggiungiPriorityTask = function (testo, priorita) {
         li.classList.add("priorita-bassa");
     }
 
-   
     const badgeTask = document.createElement("span");
     badgeTask.classList.add("badge");
     badgeTask.textContent = priorita.toUpperCase();
 
-  
     const duoTask = document.createElement("div");
     duoTask.classList.add("duoTask");
     duoTask.textContent = testo;        
     duoTask.appendChild(badgeTask);     
 
-
+    const adesso = new Date();
+    const dataFormattata = adesso.toLocaleString("it-IT");
+    
+    const infoData = document.createElement("span");
+    infoData.classList.add("data-task");
+    infoData.textContent = dataFormattata;
+    
     const bottoneElimina = document.createElement("button");
     bottoneElimina.textContent = "Elimina";
 
+    const gestioneTask = document.createElement("div");
+    gestioneTask.classList.add("gestione-task");
     
-    li.appendChild(duoTask);     
-    li.appendChild(bottoneElimina);  
+    gestioneTask.appendChild(infoData);
+    gestioneTask.appendChild(bottoneElimina);
+
+    li.appendChild(duoTask);       
+    li.appendChild(gestioneTask);  
 
     lista.appendChild(li);
     aggiornaContatore();
@@ -72,16 +81,17 @@ aggiungiPriorityTask("Chiamare il dentista", "alta");
 aggiungiPriorityTask("Riposarsi", "bassa");
 
 
-const evidenzia = function(indice) {
+const evidenzia = function (indice) {
     const tasks = lista.querySelectorAll("li");
     tasks[indice].classList.add("evidenziato");
 }
 
 evidenzia(1);
 
-const togliEvidenza = function(indice) {
+const togliEvidenza = function (indice) {
     const tasks = lista.querySelectorAll("li");
     tasks[indice].classList.remove("evidenziato");
 }
 
-togliEvidenza();
+/* togliEvidenza(); */        // toglie evidenzia, lascio nel commento per non creare problemi al codice.
+

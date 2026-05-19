@@ -82,3 +82,15 @@ li {
     align-items: center;
     gap: 10px;
 }
+
+.gestione-task {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.data-task {
+    color: #1b2845;
+    font-size: 0.8em;
+
+}
