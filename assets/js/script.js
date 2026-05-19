@@ -9,25 +9,65 @@ const lista = document.querySelector("#lista-task");
 const contatore = document.querySelector("#contatore");
 
 function aggiungiTask(testo) {
-  const li = document.createElement("li");
-  li.textContent = testo;
-  lista.appendChild(li);
-  aggiornaContatore();
+    const li = document.createElement("li");
+    li.textContent = testo;
+    lista.appendChild(li);
+    aggiornaContatore();
 }
 
 function aggiornaContatore() {
-  const tasks = lista.querySelectorAll("li");
-  contatore.textContent = tasks.length;
+    const tasks = lista.querySelectorAll("li");
+    contatore.textContent = tasks.length;
 }
 
-aggiungiTask("Studiare JavaScript");
-aggiungiTask("Bere il caffÃ¨");
-aggiungiTask("Riposarsi");
-
 /* SCRIVI QUI LE TUE FUNZIONI:
-   1. Modifica aggiungiTask per accettare priorita
+   1. Modifica aggiungiTask per accettare priorita (ok)
    2. Aggiungi bottone Elimina su ogni task
    3. evidenzia(indice) / togliEvidenza(indice)
    4. data automatica nel task
    5. contaPerPriorita()
 */
+
+/* Modifica aggiungiTask per accettare priorita */
+
+const aggiungiPriorityTask = function (testo, priorita) {
+
+    const li = document.createElement("li");
+
+    if (priorita === "alta") {
+        li.classList.add("priorita-alta");
+    } else if (priorita === "media") {
+        li.classList.add("priorita-media");
+    } else {
+        li.classList.add("priorita-bassa");
+    }
+
+   
+    const badgeTask = document.createElement("span");
+    badgeTask.classList.add("badge");
+    badgeTask.textContent = priorita.toUpperCase();
+
+  
+    const duoTask = document.createElement("div");
+    duoTask.classList.add("duoTask");
+    duoTask.textContent = testo;        
+    duoTask.appendChild(badgeTask);     
+
+
+    const bottoneElimina = document.createElement("button");
+    bottoneElimina.textContent = "Elimina";
+
+    
+    li.appendChild(duoTask);     
+    li.appendChild(bottoneElimina);  
+
+    lista.appendChild(li);
+    aggiornaContatore();
+}
+
+aggiungiPriorityTask("Pagare le bollette", "alta");
+aggiungiPriorityTask("Studiare JavaScript", "media");
+aggiungiPriorityTask("Comprare il pane", "bassa");
+aggiungiPriorityTask("Chiamare il dentista", "alta");
+aggiungiPriorityTask("Riposarsi", "bassa");
+

@@ -41,6 +41,9 @@ ul {
 li {
     padding: 10px;
     border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* Aggiungi qui le tue regole CSS per:
@@ -49,3 +52,30 @@ li {
    - .data (la data di creazione)
    - .evidenziato (sfondo giallo, bordo)
 */
+
+.priorita-alta {
+    background-color: #FDE2E2;
+}
+
+.priorita-media {
+    background-color: #FFFBE6;
+    border: 3px solid #F6C948;
+}
+
+.priorita-bassa {
+    background-color: #E2F5E2;
+}
+
+.badge {
+    background-color: #1b2845;
+    color: white;
+    border-radius: 14px;
+    padding: 3px;
+    font-size: 13px;
+}
+
+.duoTask {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
