@@ -71,3 +71,17 @@ aggiungiPriorityTask("Comprare il pane", "bassa");
 aggiungiPriorityTask("Chiamare il dentista", "alta");
 aggiungiPriorityTask("Riposarsi", "bassa");
 
+
+const evidenzia = function(indice) {
+    const tasks = lista.querySelectorAll("li");
+    tasks[indice].classList.add("evidenziato");
+}
+
+evidenzia(1);
+
+const togliEvidenza = function(indice) {
+    const tasks = lista.querySelectorAll("li");
+    tasks[indice].classList.remove("evidenziato");
+}
+
+togliEvidenza();

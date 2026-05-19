@@ -59,11 +59,14 @@ li {
 
 .priorita-media {
     background-color: #FFFBE6;
-    border: 3px solid #F6C948;
 }
 
 .priorita-bassa {
     background-color: #E2F5E2;
+}
+
+.evidenziato {
+     border: 3px solid #F6C948;
 }
 
 .badge {
